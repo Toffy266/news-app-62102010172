@@ -10,7 +10,7 @@ OPEN_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={0}&units=m
 OPEN_WEATHER_KEY = '419ec15e612827a933c48861193ee6bf'
 
 COVID_API_URL = "https://newsapi.org/v2/top-headlines?q=covid&language=en&sortBy=publishedAt&apiKey={}"
-NEWS_API_URL = "https://newsapi.org/v2/top-headlines?q={0}&language=en&sortBy=publishedAt&page=1&apiKey={1}"
+NEWS_API_URL = "https://newsapi.org/v2/everything?q={0}&language=en&sortBy=publishedAt&page=1&apiKey={1}"
 NEWS_API_KEY = "9ff6b051db4649b7a180ab750b562780"
 
 @app.route("/")
