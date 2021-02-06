@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books Data</title>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Language" content="th" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+        <link rel="stylesheet" tySpe="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body class="bg-secondary">
+        
+        <div class="page-header">
+            <img class="img-fluid" src="https://64.media.tumblr.com/e087ff686496c49853e36dfdcb4be38c/tumblr_nf21y0vKRk1smn4pqo5_1280.jpg" width="100%"> 
+        </div>
+        
+        {% include './includes/navbar.html' %}
+
+        <div class="container text-white text-center">
+                     {% block body %}{% endblock %}
+        </div>
+          
+        <footer class="jumbotron text-center bg-dark">
+            <p class="text-white">copyright &copy; 2021 by<a class="text-white" href="mailto:busarakham.lead@g.swu.ac.th" target="_self"> Busarakham </a></p>
+        </footer>
+    
+    </body>
+
+    <script>
+        $(document).ready(function () {
+            $(".delete").click(function () {
+                var id = $(this).data("id");
+                $(".yes").data("id", id);
+                var title = $(".yes").data("id");
+                $("#confirm").modal();
+            });
+            $(".yes").click(function () {
+                var title = $(this).data("id");
+                window.location.href = "/delete/" + title;
+            });
+        });
+    </script>
+</html>

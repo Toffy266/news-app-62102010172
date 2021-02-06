@@ -1,0 +1,61 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="row mx-auto"> 
+        <div class="col-sm-12">
+          
+                <h1>Books</h1><br>
+                <table class="table table-striped table-dark text-white table-responsive">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Genre</th>
+                      <th>Height</th>
+                      <th>Publisher</th>
+                      <th>Edit/Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for i in books %}
+                    <tr>
+                      <td>{{i.title}}</td>
+                      <td>{{i.author}}</td>
+                      <td>{{i.genre}}</td>
+                      <td>{{i.height}}</td>
+                      <td>{{i.publisher}}</td>
+                      <td>
+                        <div class="btn-group">
+                          <a href="/update/{{ i.title }}" class="btn btn-success"><i class='fas fa-edit'></i></a>
+                          <button data-id="{{ i.title }}" class="btn btn-danger delete"><i class='fas fa-trash-alt'></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+
+        </div>
+</div>
+
+<div class="modal fade" id="confirm" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h2 class='modal-title fas fa-trash-alt text-danger' style="margin: 0 auto;"></h2>
+      </div>
+
+      <div class="modal-body d-flex justify-content-center">
+        <h4 class=" text-dark text-center">Are you sure to delete this book?</h4>
+      </div>
+
+      <div class="modal-footer">
+        <button data-id="" class="btn btn-success yes">Delete</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}
